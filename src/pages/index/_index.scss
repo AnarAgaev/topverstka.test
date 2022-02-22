@@ -1,0 +1,414 @@
+@import "../../templates/default/scss/variables";
+
+.start-button {
+    .container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.slider {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transform: translateY(-15px);
+    top: -9999px;
+
+    &_show {
+        opacity: 1;
+        transform: translateY(0);
+        top: 0;
+        z-index: 1;
+        transition: top 0s linear 0s,
+            opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) .3s,
+            transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) .3s;
+    }
+
+    @media (min-width: $lg) {
+        height: 675px;
+    }
+
+    &__body {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__item-list {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__item {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        transform: translateX(15px);
+        z-index: 0;
+        transition: all .3s linear;
+
+        &.active {
+            opacity: 1;
+            transform: translateY(0);
+            z-index: 1;
+
+            .slider__item-content {
+
+                p, span , div {
+                    transform: translateX(0);
+                    opacity: 1;
+                    transition: all .5s ease-out .1s;
+                }
+
+            }
+        }
+
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            transition: opacity .3s linear;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+
+            @media (min-width: $lg) {
+                background-position-x: calc(50% + 106px) !important;
+            }
+            @media (min-width: $xl) {
+                background-position-x: 50% !important;
+            }
+        }
+
+        &#slide-1::before {
+            background-image: url("img/slider_1min.jpg");
+
+            @media (min-width: $lg) {
+                background-image: url("img/slider_1.jpg");
+            }
+        }
+
+        &#slide-2::before {
+            background-image: url("img/slider_2min.jpg");
+
+            @media (min-width: $lg) {
+                background-image: url("img/slider_2.jpg");
+            }
+        }
+
+        &#slide-3::before {
+            background-image: url("img/slider_3min.jpg");
+
+            @media (min-width: $lg) {
+                background-image: url("img/slider_3.jpg");
+            }
+        }
+
+        &#slide-4::before {
+            background-image: url("img/slider_4min.jpg");
+
+            @media (min-width: $lg) {
+                background-image: url("img/slider_4.jpg");
+            }
+        }
+    }
+
+    &__item-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 340px;
+        height: auto;
+        margin-top: -4px;
+
+        @media (min-width: $lg) {
+            width: 500px;
+            transform: translate(-15px, -50%);
+            margin-top: -20px;
+        }
+
+        @media (min-width: $xl) {
+            width: 600px;
+            transform: translate(-83px, -50%);
+            margin-top: -3px;
+        }
+
+        p {
+            display: block;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-size: 25px;
+            font-weight: normal;
+            color: $color-font-primary;
+            line-height: 30px;
+            transform: translateX(10px);
+            opacity: 0;
+            transition-delay: .1s !important;
+
+            @media (min-width: $lg) {
+                font-size: 35px;
+                text-align: left;
+                line-height: 42px;
+            }
+
+            @media (min-width: $xl) {
+                font-size: 42px;
+                line-height: 50px;
+            }
+        }
+
+        span {
+            display: block;
+            position: relative;
+            margin: 3px 0 0;
+            padding: 0;
+            text-align: center;
+            font-size: 18px;
+            font-weight: normal;
+            color: $color-font-primary;
+            line-height: 30px;
+            transform: translateX(20px);
+            opacity: 0;
+            transition-delay: .2s !important;
+
+            @media (min-width: $lg) {
+                font-size: 22px;
+                line-height: 33px;
+                text-align: left;
+                margin-top: 9px;
+            }
+
+            @media (min-width: $xl) {
+                font-size: 26px;
+                margin-top: 16px;
+            }
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            margin-top: 21px;
+            transform: translateX(30px);
+            opacity: 0;
+            transition-delay: .3s !important;
+
+            @media (min-width: $lg) {
+                justify-content: flex-start;
+                margin-top: 16px;
+            }
+
+            @media (min-width: $xl) {
+                margin-top: 23px;
+            }
+
+            .btn {
+                @media (min-width: $lg) {
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+
+    &__nav {
+        position: relative;
+        z-index: 1;
+
+        &-list {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            width: 100%;
+            height: auto;
+            left: 0;
+            right: 0;
+            bottom: 27px;
+            list-style: none;
+
+            @media (min-width: $lg) {
+                bottom: 25px;
+            }
+
+            @media (min-width: $xl) {
+                bottom: 20px;
+            }
+        }
+        
+        &-item {
+
+            display: block;
+            position: relative;
+            width: 14px;
+            height: 14px;
+            background-color: transparent;
+            border: 1px solid #282828;
+            border-radius: 50%;
+            margin-right: 17px;
+            cursor: pointer;
+            transition: background-color .3s linear;
+
+            &:last-child {
+                margin-right: 0 !important;
+            }
+
+            @media (min-width: $lg) {
+                width: 224px;
+                height: 55px;
+                border-radius: 3px;
+                border: none;
+                background-color: rgba(0, 0, 0, .15);
+                margin-right: 15px;
+                padding: 5px;
+
+                &:hover {
+                    background-color: rgba(0, 0, 0, .5);
+                }
+            }
+
+            @media (min-width: $xl) {
+                width: 275px;
+                height: 67px;
+                padding: 6px;
+            }
+
+            &.active {
+                background-color: #282828;
+                cursor: default;
+
+                @media (min-width: $lg) {
+                    background-color: rgba(0, 0, 0, .5);
+                }
+            }
+
+            span, p, h3 {
+                display: none;
+
+                @media (min-width: $lg) {
+                    display: block;
+                }
+            }
+
+            span {
+                width: 40px;
+                height: 45px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                float: left;
+                border-radius: 3px;
+                margin-right: 7px;
+
+                @media (min-width: $xl) {
+                    width: 48px;
+                    height: 55px;
+                    margin-right: 10px;
+                }
+            }
+
+            p {
+                margin: 0;
+                padding: 2px 0 0;
+                color: $color-font-secondary;
+                font-size: 9px;
+                letter-spacing: 0.3px;
+
+                @media (min-width: $xl) {
+                    padding-top: 3px;
+                    font-size: 11px;
+                    letter-spacing: 0.4px;
+                }
+            }
+
+            h3 {
+                margin: 0;
+                padding: 0;
+                font-size: 10px;
+                font-weight: bold;
+                color: $color-font-secondary;
+                line-height: 12px;
+                letter-spacing: 0.4px;
+
+                @media (min-width: $xl) {
+                    font-size: 12px;
+                    line-height: 15px;
+                }
+            }
+        }
+    }
+
+    &__controller {
+        display: none;
+        position: absolute;
+        top: 50%;
+        border: none;
+        width: 77px;
+        height: 85px;
+        background-color: rgba(0, 0, 0, .1);
+        border-radius: 2px;
+        z-index: 5;
+        cursor: pointer;
+        transition: background-color .2s linear;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, .3);
+        }
+
+        &::before, &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 12px;
+            height: 2px;
+            background-color: $color-font-secondary;
+        }
+
+        &::before {
+            transform: translate(-3px, -4px) rotate(45deg);
+        }
+
+        &::after {
+            transform: translate(-3px, 4px) rotate(-45deg);
+        }
+
+        &_prev {
+            left: 0;
+            transform: translate(0, -50%) scale(-1, 1);
+        }
+
+        &_next {
+            right: 0;
+            transform: translate(0, -50%);
+        }
+
+        @media (min-width: $lg) {
+            display: block;
+        }
+    }
+}

@@ -9,4 +9,74 @@ block variables
     - let pageClass   = 'page-index'
 
 block content
-    //include ../components/form/form
+
+    .start-button
+        .container
+            button.btn.btn_dark#btnStart(type="button") Начать демонстрацию
+
+    section.slider#slider
+
+        button.slider__controller.slider__controller_prev(data-direction="prev")
+        button.slider__controller.slider__controller_next(data-direction="next")
+
+        .slider__body
+            ul.slider__item-list
+
+                li.slider__item.active#slide-1
+                    .slider__item-content
+                        p Этот текст добавлен для демонстрации на странице
+                        span.d-none.d-lg-block Акция действует с 01.07.18 по 31.07.18
+                        span.d-lg-none Тест на внимательность
+                        div
+                            a.btn.btn_dark(href="#") Подробнее
+                            a.btn.btn_lite.d-none.d-lg-flex(href="#") Все акции
+
+                li.slider__item#slide-2
+                    .slider__item-content
+                        p Этот текст добавлен для демонстрации на странице
+                        span.d-none.d-lg-block Акция действует с 01.07.18 по 31.07.18
+                        span.d-lg-none Тест на внимательность
+                        div
+                            a.btn.btn_dark(href="#") Подробнее
+                            a.btn.btn_lite.d-none.d-lg-flex(href="#") Все акции
+
+                li.slider__item#slide-3
+                    .slider__item-content
+                        p Этот текст добавлен для демонстрации на странице
+                        span.d-none.d-lg-block Акция действует с 01.07.18 по 31.07.18
+                        span.d-lg-none Тест на внимательность
+                        div
+                            a.btn.btn_dark(href="#") Подробнее
+                            a.btn.btn_lite.d-none.d-lg-flex(href="#") Все акции
+
+                li.slider__item#slide-4
+                    .slider__item-content
+                        p Этот текст добавлен для демонстрации на странице
+                        span.d-none.d-lg-block Акция действует с 01.07.18 по 31.07.18
+                        span.d-lg-none Тест на внимательность
+                        div
+                            a.btn.btn_dark(href="#") Подробнее
+                            a.btn.btn_lite.d-none.d-lg-flex(href="#") Все акции
+
+        .slider__nav
+            ul.slider__nav-list
+
+                li.slider__nav-item.active(data-target-slide-id="slide-1")
+                    span(style="background-image: url('img/slider_1pre.jpg')")
+                    p Акция действует с 01.07.18
+                    h3 Этот текст добавлен для демонстрации на странице
+
+                li.slider__nav-item(data-target-slide-id="slide-2")
+                    span(style="background-image: url('img/slider_2pre.jpg')")
+                    p Акция действует с 01.07.18
+                    h3 Этот текст добавлен для демонстрации на странице
+
+                li.slider__nav-item(data-target-slide-id="slide-3")
+                    span(style="background-image: url('img/slider_3pre.jpg')")
+                    p Акция действует с 01.07.18
+                    h3 Этот текст добавлен для демонстрации на странице
+
+                li.slider__nav-item(data-target-slide-id="slide-4")
+                    span(style="background-image: url('img/slider_4pre.jpg')")
+                    p Акция действует с 01.07.18
+                    h3 Этот текст добавлен для демонстрации на странице
