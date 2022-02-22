@@ -1,0 +1,29 @@
+//- Variables from pages
+block variables
+
+doctype html
+html(lang="ru")
+    head
+        meta(name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        meta(name="author" content="Developer: Anar.N.Agaev")
+        meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+        meta(name="robots" content="index, follow")
+        meta(name="description" content=description)
+        meta(name="keywords" content=keywords)
+        title #{title}
+
+        link(rel="preload" href="style.css" as="style")
+        link(rel="stylesheet" href="style.css" type="text/css")
+
+        link(rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png")
+        link(rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png")
+        link(rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png")
+        link(rel="manifest" href="favicon/manifest.json")
+
+    body(class=pageClass)
+
+        main.main#main
+            block content
+
+        script(src="script.js" async)
